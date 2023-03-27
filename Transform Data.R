@@ -16,11 +16,11 @@ for (x in train_set) {
     mutate(pm_loess = loess01[["fitted"]]) %>%
     mutate(delta_pm = (shift(pm_loess, n=-1, fill=0) - shift(pm_loess, n=1, fill=0))/2)
   
-  delta_loess01 <- loess(delta_pm ~ test_seconds, data=profile_x, span=.01)
+  #delta_loess01 <- loess(delta_pm ~ test_seconds, data=profile_x, span=.01)
   
-  profile_x <- profile_x %>%
-    mutate(delta_pm_loess = delta_loess01[["fitted"]]) %>%
-    mutate(delta_squared_pm = (shift(delta_pm_loess, n=-1, fill=0) - shift(delta_pm_loess, n=1, fill=0))/2)
+  #profile_x <- profile_x %>%
+  #  mutate(delta_pm_loess = delta_loess01[["fitted"]]) %>%
+  #  mutate(delta_squared_pm = (shift(delta_pm_loess, n=-1, fill=0) - shift(delta_pm_loess, n=1, fill=0))/2)
   
   #corr_name <- paste0("profile_", x)
   #ccf_values <- ccf(profile_x$delta_pm_smooth, profile_x$pm, lag.max = lag_amt, type = "correlation", plot = FALSE, na.action = na.omit)
@@ -29,7 +29,7 @@ for (x in train_set) {
   write_csv(profile_x, paste0("profile_", x, "_expanded.csv"))
   rm(profile_x)
   rm(loess01)
-  rm(delta_loess01)
+  #rm(delta_loess01)
   #rm(corr_name)
   gc()
 }
