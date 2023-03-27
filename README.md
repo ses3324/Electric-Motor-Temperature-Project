@@ -4,4 +4,6 @@ Data science project to model the permanent magnet temperature of an electric mo
 README on the to-do list
 
 1. Download the "measures_v2.csv" dataset at the following URL, and save it in the project folder.
+    Data:  https://www.kaggle.com/datasets/wkirgsn/electric-motor-temperature?resource=download
+    
 2. Run the "Split Test Profiles.R" script before running the "Transform Data.R" script
